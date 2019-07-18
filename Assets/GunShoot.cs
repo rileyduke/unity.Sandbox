@@ -21,7 +21,7 @@ public class GunShoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire2") && Time.time > lastFireTime + reloadTime)
+        if (Input.GetButtonDown("Fire2"))
         {
             ShootRocket();
         }
