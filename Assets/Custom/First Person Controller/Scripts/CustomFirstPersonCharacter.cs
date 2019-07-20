@@ -13,8 +13,8 @@ public class CustomFirstPersonCharacter : RigidbodyFirstPersonController
         public class MovementSettings
         {
             public float ForwardSpeed = 8.0f;   // Speed when walking forward
-            public float BackwardSpeed = 4.0f;  // Speed when walking backwards
-            public float StrafeSpeed = 4.0f;    // Speed when walking sideways
+            public float BackwardSpeed = 8.0f;  // Speed when walking backwards
+            public float StrafeSpeed = 8.0f;    // Speed when walking sideways
             public float RunMultiplier = 2.0f;   // Speed when sprinting
             public KeyCode RunKey = KeyCode.LeftShift;
             public float JumpForce = 30f;
@@ -27,24 +27,6 @@ public class CustomFirstPersonCharacter : RigidbodyFirstPersonController
 
             public void UpdateDesiredTargetSpeed(Vector2 input)
             {
-                if (input == Vector2.zero) return;
-                if (input.x > 0 || input.x < 0)
-                {
-                    //strafe
-                    CurrentTargetSpeed = StrafeSpeed;
-                }
-                if (input.y < 0)
-                {
-                    //backwards
-                    CurrentTargetSpeed = BackwardSpeed;
-                }
-                if (input.y > 0)
-                {
-                    //forwards
-                    //handled last as if strafing and moving forward at the same time forwards speed should take precedence
-                    CurrentTargetSpeed = ForwardSpeed;
-                }
-#if !MOBILE_INPUT
                 if (Input.GetKey(RunKey))
                 {
                     CurrentTargetSpeed *= RunMultiplier;
@@ -54,7 +36,6 @@ public class CustomFirstPersonCharacter : RigidbodyFirstPersonController
                 {
                     m_Running = false;
                 }
-#endif
             }
 
 #if !MOBILE_INPUT
@@ -155,7 +136,8 @@ public class CustomFirstPersonCharacter : RigidbodyFirstPersonController
                 if (m_RigidBody.velocity.sqrMagnitude <
                     (movementSettings.CurrentTargetSpeed * movementSettings.CurrentTargetSpeed))
                 {
-                    m_RigidBody.AddForce(desiredMove * SlopeMultiplier(), ForceMode.Impulse);
+                    //m_RigidBody.AddForce(desiredMove * SlopeMultiplier(), ForceMode.Impulse);
+                    m_RigidBody.MovePosition(m_RigidBody.position + desiredMove);
                 }
             }
 

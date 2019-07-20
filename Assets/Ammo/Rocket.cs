@@ -8,7 +8,9 @@ public class Rocket : MonoBehaviour
     public float speed = 20.0f;
     public float life = 5.0f;
     public float BlastRadius = 10.0f;
-    public float ExplosionForce = 700f;
+    public float ExplosionForce = 1700f;
+
+    public GameObject Explosion;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +37,7 @@ public class Rocket : MonoBehaviour
     void Explode()
     {
         // show explosion effect
+        Instantiate(Explosion, transform.position, new Quaternion(0,0,0,0));
 
         // explode nearby objects
         // - add forces to them

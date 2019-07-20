@@ -124,4 +124,6 @@ MonoBehaviour:
   speed: 50
   life: 100
   BlastRadius: 5
-  ExplosionForce: 700
+  ExplosionForce: 2000
+  Explosion: {fileID: 7303860961251392313, guid: 06bed6d3a0c2ffe4f86cf3844ced4eaf,
+    type: 3}
