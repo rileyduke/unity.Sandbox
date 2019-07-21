@@ -18,17 +18,10 @@ namespace Assets.Combat.Weapon.Projectile.RocketLauncher
 
         private float lastFireTime;
 
-        private AmmoPooler _RocketPool { get; set;  } // = new AmmoPool(rocketPrefab);
-
         #endregion
 
         public float damage = 10f;
         public float range = 100f;
-
-        void Start()
-        {
-            this._RocketPool = new AmmoPooler();
-        }
 
         // Update is called once per frame
         void Update()
@@ -58,12 +51,12 @@ namespace Assets.Combat.Weapon.Projectile.RocketLauncher
         /// </summary>
         void ShootRocketFromPool()
         {
-            GameObject bullet = AmmoPooler.SharedInstance.GetPooledObject();
-            if (bullet != null)
+            GameObject Rocket = AmmoPooler.SharedInstance.GetPooledObject();
+            if (Rocket != null)
             {
-                bullet.transform.position = BarrelInstantiatePoint.transform.position;
-                bullet.transform.rotation = BarrelInstantiatePoint.transform.rotation;
-                bullet.SetActive(true);
+                Rocket.transform.position = BarrelInstantiatePoint.transform.position;
+                Rocket.transform.rotation = BarrelInstantiatePoint.transform.rotation;
+                Rocket.SetActive(true);
             }
         }
 

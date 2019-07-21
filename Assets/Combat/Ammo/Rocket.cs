@@ -41,7 +41,14 @@ public class Rocket : TTLAmmo
     void Explode()
     {
         // show explosion effect
-        Instantiate(Explosion, transform.position, new Quaternion(0,0,0,0));
+        // Instantiate(Explosion, transform.position, new Quaternion(0, 0, 0, 0));
+        GameObject _Explosion = ExplosionPool.SharedInstance.GetPooledObject();
+        if (_Explosion != null)
+        {
+            _Explosion.transform.position = transform.position;
+            _Explosion.transform.rotation = new Quaternion(0, 0, 0, 0);
+            _Explosion.SetActive(true);
+        }
 
         // explode nearby objects
         // - add forces to them
