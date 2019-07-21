@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.Combat.Ammo.ProjectilePools;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,7 +8,7 @@ using UnityEngine;
 
 namespace Assets.Ammo.ProjectilePools
 {
-    public class RocketPool : MonoBehaviour
+    public class RocketPool : AmmoPooler
     {
         public float PoolSize = 10f;
         public GameObject Prefab;

@@ -1,47 +1,43 @@
 ﻿using Assets.Ammo.ProjectilePools;
+using Assets.Combat.Ammo;
+using Assets.Combat.Ammo.ProjectilePools;
 using Helpers.AssetHelpers;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Rocket : MonoBehaviour
+public class Rocket : TTLAmmo
 {
     public float speed = 20.0f;
-    public float life = 5.0f;
     public float BlastRadius = 10.0f;
     public float ExplosionForce = 1700f;
 
     public GameObject Explosion;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        Invoke("Kill", life);
-    }
-    // Start is called before the first frame update
-    void OnEnable()
-    {
-        Invoke("Kill", life);
-    }
-
-    // Update is called once per frame
+    
+    /// <summary>
+    /// update
+    /// </summary>
     void Update()
     {
+        if(Time.time > Genesis + TTL)
+        {
+            Kill();
+        }
         transform.position += transform.forward * speed * Time.deltaTime;
     }
 
+    /// <summary>
+    /// unity behaviour
+    /// </summary>
+    /// <param name="col"></param>
     void OnTriggerEnter(Collider col)
     {
         Explode();
     }
 
-    void Kill()
-    {
-        //Destroy(gameObject);
-
-        
-    }
-
+    /// <summary>
+    /// explode the rocket
+    /// </summary>
     void Explode()
     {
         // show explosion effect

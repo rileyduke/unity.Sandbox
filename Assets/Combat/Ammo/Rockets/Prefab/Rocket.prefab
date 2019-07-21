@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 50
-  life: 100
+  life: 10
   BlastRadius: 5
   ExplosionForce: 2000
   Explosion: {fileID: 7303860961251392313, guid: 06bed6d3a0c2ffe4f86cf3844ced4eaf,
