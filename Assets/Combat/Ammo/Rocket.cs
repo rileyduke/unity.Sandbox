@@ -1,4 +1,5 @@
-﻿using Helpers.AssetHelpers;
+﻿using Assets.Ammo.ProjectilePools;
+using Helpers.AssetHelpers;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,6 +18,11 @@ public class Rocket : MonoBehaviour
     {
         Invoke("Kill", life);
     }
+    // Start is called before the first frame update
+    void OnEnable()
+    {
+        Invoke("Kill", life);
+    }
 
     // Update is called once per frame
     void Update()
@@ -31,7 +37,9 @@ public class Rocket : MonoBehaviour
 
     void Kill()
     {
-        Destroy(gameObject);
+        //Destroy(gameObject);
+
+        
     }
 
     void Explode()

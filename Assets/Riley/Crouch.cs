@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Crouch : MonoBehaviour
 {
-    CharacterController characterCollider;
+    CustomFirstPersonCharacter characterCollider;
 
     // Start is called before the first frame update
     void Start()
     {
-        characterCollider = gameObject.GetComponent<CharacterController>();
+        characterCollider = gameObject.GetComponent<CustomFirstPersonCharacter>();
     }
 
     // Update is called once per frame

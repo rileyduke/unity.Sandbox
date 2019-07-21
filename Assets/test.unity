@@ -876,6 +876,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 50
+--- !u!20 &2057356183 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 3957443142482803693, guid: 7ddc2aa6472d915439522fd8f7964d1b,
+    type: 3}
+  m_PrefabInstance: {fileID: 3957443142282280914}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2707579920849589160
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1025,5 +1031,9 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 14
       objectReference: {fileID: 0}
+    - target: {fileID: 956537940, guid: 7ddc2aa6472d915439522fd8f7964d1b, type: 3}
+      propertyPath: fpsCamera
+      value: 
+      objectReference: {fileID: 2057356183}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ddc2aa6472d915439522fd8f7964d1b, type: 3}

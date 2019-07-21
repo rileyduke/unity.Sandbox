@@ -5,10 +5,12 @@ using UnityStandardAssets.CrossPlatformInput;
 
 public class CustomFirstPersonCharacter : RigidbodyFirstPersonController
 {
+    public float height = 2f;
     [RequireComponent(typeof(Rigidbody))]
     [RequireComponent(typeof(CapsuleCollider))]
     public class RigidbodyFirstPersonController : MonoBehaviour
     {
+
         [Serializable]
         public class MovementSettings
         {
